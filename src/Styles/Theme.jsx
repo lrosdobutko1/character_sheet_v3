@@ -1,0 +1,17 @@
+export const theme = {
+  colors: {
+    background: "rgb(40, 40, 40)",
+    border: "maroon",
+    highlight: "bisque",
+    text: "#b9b9b9",
+  },
+  spacing: {
+    small: "4px",
+    medium: "8px",
+    large: "16px",
+  },
+  fonts: {
+    body: "'Arial', sans-serif",
+    heading: "'Georgia', serif",
+  },
+};
