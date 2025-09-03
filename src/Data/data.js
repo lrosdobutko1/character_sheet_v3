@@ -135,6 +135,9 @@ export const intScore = 10;
 export const wisScore = 10;
 export const chaScore = 14;
 
+const initiativeValue = getBonus(dexScore) + (swashbuckler ? getBonus(chaScore) : 0);
+
+
 export const statBlock = {
   str: { name: "Strength", stat: strScore, bonus: getBonus(strScore) },
   dex: { name: "Dexterity", stat: dexScore, bonus: getBonus(dexScore) },
@@ -142,6 +145,7 @@ export const statBlock = {
   int: { name: "Intelligence", stat: intScore, bonus: getBonus(intScore) },
   wis: { name: "Wisdom", stat: wisScore, bonus: getBonus(wisScore) },
   cha: { name: "Charisma", stat: chaScore, bonus: getBonus(chaScore) },
+  ini: { name: "Initiative", stat: initiativeValue, bonus: 0 },
 };
 
 // Derived Values

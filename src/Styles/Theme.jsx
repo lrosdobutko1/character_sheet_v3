@@ -14,4 +14,9 @@ export const theme = {
     body: "'Arial', sans-serif",
     heading: "'Georgia', serif",
   },
+  fontSizes: {
+    small: "0.7rem",
+    medium: "1rem",
+    large: "1.5rem",
+  },
 };
