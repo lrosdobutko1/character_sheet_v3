@@ -10,8 +10,8 @@ const StatsPanel = styled(BasePanel)`
   font-size: ${({ theme }) => theme.fontSizes.small};
 `;
 
-export function Stats({ stats, moveSpeed }) {
-  const statKeys = ["str", "dex", "con", "int", "wis", "cha", "ini"];
+export function Stats({ stats }) {
+  const statKeys = ["str", "dex", "con", "int", "wis", "cha", "ini", "mov"];
 
   return (
     <StatsPanel>
@@ -27,12 +27,6 @@ export function Stats({ stats, moveSpeed }) {
             </StatCell>
           </div>
         ))}
-        <div style={{ flex: 1 }}>
-          <StatCell>
-            Movement:
-            <BonusCell>{moveSpeed}</BonusCell>
-          </StatCell>
-        </div>
       </RowContainer>
     </StatsPanel>
   );

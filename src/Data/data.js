@@ -1,10 +1,16 @@
 // Character Info
-export const name = "Astos San Kheeb'ler";
-export const characterLevel = 12;
+
+export const characterInformation = {
+  name: "Astos San Kheeb'ler",
+  characterLevel: 12,
+  characterGender: "Male",
+  characterRace: "Half-Elf",
+  characterBackground: "Charlatan",
+};
 
 export const characterClass = { 
-  class0: { class: "Rogue", subclass: "Swashbuckler" }, 
-  class1: { class: "Ranger", subclass: "Swarmkeeper" },
+  class0: { class: "Rogue", subclass: "Swashbuckler", hitDice: 8, classLevel: 5 }, 
+  class1: { class: "Ranger", subclass: "Swarmkeeper", hitDice: 8, classLevel: 7 },
 };
 
 export const swashbuckler = Object.values(characterClass).some(
@@ -136,7 +142,8 @@ export const wisScore = 10;
 export const chaScore = 14;
 
 const initiativeValue = getBonus(dexScore) + (swashbuckler ? getBonus(chaScore) : 0);
-
+const moveSpeed = 30;
+export const profScore = 1 + Math.ceil(characterInformation.characterLevel / 4);
 
 export const statBlock = {
   str: { name: "Strength", stat: strScore, bonus: getBonus(strScore) },
@@ -145,13 +152,16 @@ export const statBlock = {
   int: { name: "Intelligence", stat: intScore, bonus: getBonus(intScore) },
   wis: { name: "Wisdom", stat: wisScore, bonus: getBonus(wisScore) },
   cha: { name: "Charisma", stat: chaScore, bonus: getBonus(chaScore) },
-  ini: { name: "Initiative", stat: initiativeValue, bonus: 0 },
+  ini: { name: "Initiative", stat: null, bonus: initiativeValue },
+  mov: { name: "Movement", stat: null, bonus: moveSpeed },
 };
 
-// Derived Values
-export const profScore = 1 + Math.ceil(characterLevel / 4);
+// Initiative
 export const initiative = statBlock.dex.bonus + (swashbuckler ? statBlock.cha.bonus : 0);
-export const moveSpeed = 30;
+export const hitPoints = (characterClass.class0.classLevel * characterClass.class0.hitDice) + 
+(characterClass.class1.classLevel * characterClass.class1.hitDice) +
+getBonus(statBlock.con.stat) * characterInformation.characterLevel;
+
 
 // Skills
 export const skills = {

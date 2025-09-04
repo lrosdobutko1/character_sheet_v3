@@ -7,4 +7,6 @@ export const BonusCell = styled(BasePanel)`
     padding: 4px;
     border: 2px solid ${({ theme }) => theme.colors.border};
     border-radius: 50%;
+    font-size: ${({ theme }) => theme.fontSizes.medium};
+    font-weight: bold;
     `
