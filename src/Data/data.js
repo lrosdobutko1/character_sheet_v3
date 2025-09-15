@@ -17,6 +17,16 @@ export const swashbuckler = Object.values(characterClass).some(
   cls => cls.subclass.toLowerCase() === "swashbuckler"
 );
 
+export const darkVision = (characterInformation.characterRace.toLowerCase() === "dwarf" ||
+characterInformation.characterRace.toLowerCase() === "half-elf" ||
+characterInformation.characterRace.toLowerCase() === "elf" ||
+characterInformation.characterRace.toLowerCase() === "gnome" ||
+characterInformation.characterRace.toLowerCase() === "half-orc" ||
+characterInformation.characterRace.toLowerCase() === "tiefling"
+);
+
+export const darkVisionRange = darkVision ? 60 : 0;
+
 // Weapon Types
 export const weaponTypes = {
   battleaxe: {
@@ -126,13 +136,6 @@ export const profs = {
 // Utility Functions
 export const getBonus = score => Math.floor((score - 10) / 2);
 
-export const makeSkill = (label, stat, proficient = false, expert = false) => ({
-  label,
-  stat,
-  proficient,
-  expert,
-});
-
 // Stats
 export const strScore = 8;
 export const dexScore = 18;
@@ -162,6 +165,12 @@ export const hitPoints = (characterClass.class0.classLevel * characterClass.clas
 (characterClass.class1.classLevel * characterClass.class1.hitDice) +
 getBonus(statBlock.con.stat) * characterInformation.characterLevel;
 
+export const makeSkill = (name, stat, proficient = false, expert = false) => ({
+  name,
+  stat,
+  proficient,
+  expert,
+});
 
 // Skills
 export const skills = {
@@ -172,7 +181,7 @@ export const skills = {
   Deception:      makeSkill("Deception", statBlock.cha.bonus),
   History:        makeSkill("History", statBlock.int.bonus),
   Insight:        makeSkill("Insight", statBlock.wis.bonus),
-  Intimidation:   makeSkill("Intimidation", statBlock.cha.bonus),
+  Intimidation:   makeSkill("Intimidation", statBlock.cha.bonus, true, true),
   Investigation:  makeSkill("Investigation", statBlock.int.bonus),
   Medicine:       makeSkill("Medicine", statBlock.wis.bonus),
   Nature:         makeSkill("Nature", statBlock.int.bonus),
@@ -184,6 +193,12 @@ export const skills = {
   Stealth:        makeSkill("Stealth", statBlock.dex.bonus),
   Survival:       makeSkill("Survival", statBlock.wis.bonus),
 };
+
+export const passiveSenses = {
+  perception: {name: "Passive Perception", value: 10 + skills.Perception.stat + (skills.Perception.proficient ? profScore : 0) + (skills.Perception.expert ? profScore : 0)},
+  investigation: {name: "Passive Investigation", value: 10 + skills.Investigation.stat + (skills.Investigation.proficient ? profScore : 0) + (skills.Investigation.expert ? profScore : 0)},
+  insight: {name: "Passive Insight", value: 10 + skills.Insight.stat + (skills.Insight.proficient ? profScore : 0) + (skills.Insight.expert ? profScore : 0)},
+}
 
 // Equipment
 export const equipment = {

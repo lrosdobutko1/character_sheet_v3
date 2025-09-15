@@ -9,6 +9,9 @@ import { Inventory } from "./Components/Inventory";
 import { RowContainer } from "./Components/RowContainer";
 import { Stats } from "./Components/Stats";
 import { characterInformation, characterClass, statBlock } from "./Data/data";
+import { Saves } from "./Components/Saves";
+import { Senses } from "./Components/Senses";
+import { skills } from "./Data/data";
 
 function App() {
   return (
@@ -18,10 +21,19 @@ function App() {
           characterInformation={characterInformation}
           characterClass={characterClass}
         />
-        <Stats stats={statBlock} />
+        <Stats 
+        stats={statBlock} 
+        />
         <RowContainer>
-          <SaveSenseProf />
-          <Skills />
+          <SaveSenseProf>
+            <Saves 
+            stats={statBlock}
+            />
+            <Senses
+            stats={statBlock} 
+            />
+          </SaveSenseProf>
+          <Skills skills={skills}/>
           <Inventory />
         </RowContainer>
       </Sheet>

@@ -1,9 +1,11 @@
 export const theme = {
   colors: {
     background: "rgb(40, 40, 40)",
-    border: "maroon",
+    border: "black",
+    border_highlight: "maroon",
     highlight: "bisque",
     text: "#b9b9b9",
+
   },
   spacing: {
     small: "4px",
@@ -17,6 +19,7 @@ export const theme = {
   fontSizes: {
     small: "0.7rem",
     medium: "1rem",
+    numbers: "0.85rem",
     large: "1.5rem",
   },
 };

@@ -6,5 +6,8 @@ export const SaveSenseProf = styled(BasePanel)`
     min-width: 200px;
     height: fit-content;
     border: 2px solid ${({ theme }) => theme.colors.highlight};
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     
     `

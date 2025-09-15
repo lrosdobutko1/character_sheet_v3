@@ -7,6 +7,7 @@ import { BonusCell } from "./BonusCell";
 const StatsPanel = styled(BasePanel)`
   width: 95%;
   height: fit-content;
+  border: 2px solid ${({ theme }) => theme.colors.border_highlight};
   font-size: ${({ theme }) => theme.fontSizes.small};
 `;
 
@@ -19,11 +20,15 @@ export function Stats({ stats }) {
         {statKeys.map((key) => (
           <div key={key} style={{ flex: 1 }}>
             <StatCell>
-              {stats[key].name}: {stats[key].stat}
-              <BonusCell>
-                {stats[key].bonus > 0 ? "+" : ""}
-                {stats[key].bonus}
-              </BonusCell>
+              <div>
+                {stats[key].name}: {stats[key].stat}
+              </div>
+              <div>
+                <BonusCell>
+                  {stats[key].bonus > 0 ? "+" : ""}
+                  {stats[key].bonus}
+                </BonusCell>
+              </div>
             </StatCell>
           </div>
         ))}

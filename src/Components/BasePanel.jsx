@@ -7,5 +7,6 @@ export const BasePanel = styled.div`
   margin: ${({ theme }) => theme.spacing.small} auto;
   width: fit-content;
   font-family: ${({ theme }) => theme.fonts.body};
+  font-size: ${({ theme }) => theme.fontSizes.small};
   color: ${({ theme }) => theme.colors.text};
 `;
