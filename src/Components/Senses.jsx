@@ -5,8 +5,8 @@ import { BonusCell } from "./BonusCell";
 import { darkVisionRange, passiveSenses } from "../Data/data";
 
 const SensesPanel = styled(BasePanel)`
-  border: 2px solid ${({ theme }) => theme.colors.highlight};
-  width: 90%;
+  border: 1px solid ${({ theme }) => theme.colors.border_highlight};
+  width: 95%;
   height: 30%;
   min-height: 150px;
   display: grid;

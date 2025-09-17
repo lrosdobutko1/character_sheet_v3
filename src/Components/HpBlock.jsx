@@ -3,10 +3,10 @@ import { BasePanel } from "./BasePanel";
 
 
 const HpBlockPanel = styled(BasePanel)`
+    border: 1px solid ${({ theme }) => theme.colors.border_highlight};
     width: 450px;
     height: 105px;
     text-align: center;
-    border: 1px solid ${({ theme }) => theme.colors.border_highlight};
     border-radius: 8px;
     font-size: ${({ theme }) => theme.fontSizes.medium};
     `;

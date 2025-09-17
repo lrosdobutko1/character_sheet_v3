@@ -5,7 +5,8 @@ import { CharacterPortrait } from "./CharacterPortrait";
 import { HpBlock } from "./HpBlock";
 
 const CharacterInfoPanel = styled(BasePanel)`
-  width: 95%;
+  border: 1px solid ${({ theme }) => theme.colors.border_highlight};
+  width: 99%;
   height: fit-content;
   font-size: ${({ theme }) => theme.fontSizes.medium};
   text-align: left;

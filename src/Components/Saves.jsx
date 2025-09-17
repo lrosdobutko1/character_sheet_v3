@@ -4,7 +4,7 @@ import { StatCell } from "./StatCell";
 import { BonusCell } from "./BonusCell";
 
 const SavePanel = styled(BasePanel)`
-  border: 2px solid ${({ theme }) => theme.colors.highlight};
+  border: 1px solid ${({ theme }) => theme.colors.border_highlight};
   width: 95%;
   min-height: 150px;
   display: grid;

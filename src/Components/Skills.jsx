@@ -4,10 +4,10 @@ import { StatCell } from "./StatCell";
 import { BonusCell } from "./BonusCell";
 
 export const SkillsPanel = styled(BasePanel)`
+  border: 1px solid ${({ theme }) => theme.colors.border_highlight};
   width: 30%;
   min-width: 200px;
   height: fit-content;
-  border: 2px solid ${({ theme }) => theme.colors.highlight};
 `;
 
 export function Skills({ skills }) {

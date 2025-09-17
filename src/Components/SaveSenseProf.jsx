@@ -2,10 +2,10 @@ import styled from "styled-components";
 import { BasePanel } from "./BasePanel";
 
 export const SaveSenseProf = styled(BasePanel)`
+    border: 1px solid ${({ theme }) => theme.colors.border_highlight};
     width: 30%;
     min-width: 200px;
     height: fit-content;
-    border: 2px solid ${({ theme }) => theme.colors.highlight};
     display: flex;
     flex-direction: column;
     align-items: flex-start;

@@ -5,9 +5,9 @@ import { StatCell } from "./StatCell";
 import { BonusCell } from "./BonusCell";
 
 const StatsPanel = styled(BasePanel)`
-  width: 95%;
+  width: 99%;
+  border: 1px solid ${({ theme }) => theme.colors.border_highlight};
   height: fit-content;
-  border: 2px solid ${({ theme }) => theme.colors.border_highlight};
   font-size: ${({ theme }) => theme.fontSizes.small};
 `;
 

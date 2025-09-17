@@ -12,6 +12,7 @@ import { characterInformation, characterClass, statBlock } from "./Data/data";
 import { Saves } from "./Components/Saves";
 import { Senses } from "./Components/Senses";
 import { skills } from "./Data/data";
+import { InventoryTable } from "./Components/Inventory";
 
 function App() {
   return (
@@ -34,7 +35,7 @@ function App() {
             />
           </SaveSenseProf>
           <Skills skills={skills}/>
-          <Inventory />
+          <InventoryTable />
         </RowContainer>
       </Sheet>
     </ThemeProvider>
