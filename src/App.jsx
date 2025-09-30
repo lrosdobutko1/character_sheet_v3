@@ -1,20 +1,39 @@
 import { ThemeProvider } from "styled-components";
+import { useState, useEffect } from "react";
 import "./App.css";
 import { Sheet } from "./Components/Sheet";
 import { theme } from "./Styles/Theme";
 import { SaveSenseProf } from "./Components/SaveSenseProf";
 import { CharacterInfo } from "./Components/CharacterInfo";
 import { Skills } from "./Components/Skills";
-import { Inventory } from "./Components/Inventory";
 import { RowContainer } from "./Components/RowContainer";
 import { Stats } from "./Components/Stats";
-import { characterInformation, characterClass, statBlock } from "./Data/data";
+import { characterInformation, characterClass, statBlock } from "./Data/characterData";
 import { Saves } from "./Components/Saves";
 import { Senses } from "./Components/Senses";
-import { skills } from "./Data/data";
+import { skills } from "./Data/characterData";
 import { InventoryTable } from "./Components/Inventory";
+import { fetchEquipmentData } from "./Data/apiData";
 
 function App() {
+  const [equipmentData, setEquipmentData] = useState([]);
+  const [isLoadingEquipment, setIsLoadingEquipment] = useState(true);
+
+  useEffect(() => {
+    const loadEquipmentData = async () => {
+      try {
+        const data = await fetchEquipmentData();
+        setEquipmentData(data);
+      } catch (error) {
+        console.error("Failed to load equipment data:", error);
+      } finally {
+        setIsLoadingEquipment(false);
+      }
+    };
+
+    loadEquipmentData();
+  }, []); // Empty dependency array = run once on mount
+
   return (
     <ThemeProvider theme={theme}>
       <Sheet>
@@ -22,20 +41,17 @@ function App() {
           characterInformation={characterInformation}
           characterClass={characterClass}
         />
-        <Stats 
-        stats={statBlock} 
-        />
+        <Stats stats={statBlock} />
         <RowContainer>
           <SaveSenseProf>
-            <Saves 
-            stats={statBlock}
-            />
-            <Senses
-            stats={statBlock} 
-            />
+            <Saves stats={statBlock} />
+            <Senses stats={statBlock} />
           </SaveSenseProf>
-          <Skills skills={skills}/>
-          <InventoryTable />
+          <Skills skills={skills} />
+          <InventoryTable 
+            equipmentData={equipmentData}
+            isLoading={isLoadingEquipment}
+          />
         </RowContainer>
       </Sheet>
     </ThemeProvider>

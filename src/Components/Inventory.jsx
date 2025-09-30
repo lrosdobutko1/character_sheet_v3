@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { BasePanel } from "./BasePanel";
-import { weaponTypes } from "../Data/data";
+import { weaponTypes } from "../Data/characterData";
 
 export const Inventory = styled(BasePanel)`
   width: 35%;
@@ -27,7 +27,7 @@ const Td = styled.td`
   padding: 4px 8px;
   border-bottom: 1px solid ${({ theme }) => theme.colors.border || "#eee"};
 `;
-
+/*
 export function InventoryTable() {
   return (
     <Inventory>
@@ -64,4 +64,25 @@ export function InventoryTable() {
       </Table>
     </Inventory>
   );
-}
+}*/
+
+export function InventoryTable({equipmentData, isLoading}) {
+    if (isLoading) {
+    return (
+      <Inventory>
+        <p>Loading equipment data...</p>
+      </Inventory>
+    );
+  }
+
+  return (
+    <Inventory>
+      <p>equipment data gets printed out here</p>
+
+      <span>{JSON.stringify(equipmentData.find(item => item.index === "dagger"), null, 2)}</span>
+      <span>{JSON.stringify(equipmentData.find(item => item.index === "longsword"), null, 2)}</span>
+
+    </Inventory>
+
+  );
+};

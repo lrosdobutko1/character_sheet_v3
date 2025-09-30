@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { BasePanel } from "./BasePanel";
 import { StatCell } from "./StatCell";
 import { BonusCell } from "./BonusCell";
-import { darkVisionRange, passiveSenses } from "../Data/data";
+import { darkVisionRange, passiveSenses } from "../Data/characterData";
 
 const SensesPanel = styled(BasePanel)`
   border: 1px solid ${({ theme }) => theme.colors.border_highlight};

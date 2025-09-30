@@ -6,4 +6,5 @@ export const StatCell = styled(BasePanel)`
     min-width: 60px;
     height: fit-content;
     border-radius: 8px;
+    box-shadow: none;
     `

@@ -27,7 +27,6 @@ characterInformation.characterRace.toLowerCase() === "tiefling"
 
 export const darkVisionRange = darkVision ? 60 : 0;
 
-// Weapon Types
 export const weaponTypes = {
   battleaxe: {
     label: "Battleaxe",

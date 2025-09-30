@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { BasePanel } from "./BasePanel";
-import { characterClass, hitPoints } from "../Data/data";
+import { characterClass, hitPoints } from "../Data/characterData";
 import { CharacterPortrait } from "./CharacterPortrait";
 import { HpBlock } from "./HpBlock";
 
